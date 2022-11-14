@@ -1,57 +1,46 @@
 package com.skilldistillery.cards;
 
-import java.util.Objects;
-
 public class Card {
-//has-a or (association)
-	
+	private Suit suit;
+	private int value;
 	private Rank rank;
-	private CardSuits cardsuits;
-
-
-public Card() {}
-public Card(CardSuits cardsuits, Rank rank) {
-	this.cardsuits = cardsuits;
-	this.rank = rank;
-}
-
-public int getValue() {
-	return this.rank.getValue();
-}
-
-public Rank getRank() {
-	return rank;
-}
-public void setRank(Rank rank) {
-	this.rank = rank;
-}
-public CardSuits getCardsuits() {
-	return cardsuits;
-}
-public void setCardsuits(CardSuits cardsuits) {
-	this.cardsuits = cardsuits;
-}
-@Override
-public int hashCode() {
-	return Objects.hash(cardsuits, rank);
-}
-@Override
-public boolean equals(Object obj) {
-	if (this == obj)
-		return true;
-	if (obj == null)
-		return false;
-	if (getClass() != obj.getClass())
-		return false;
-	Card other = (Card) obj;
-	return cardsuits == other.cardsuits && rank == other.rank;
-}
-@Override
-public String toString() {
-	return "Card [rank=" + rank + ", cardsuits=" + cardsuits + "]";
-}
-
-
-
+	public Suit getSuit() {
+		return suit;
+	}
+	public void setSuit(Suit suit) {
+		this.suit = suit;
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	public Rank getRank() {
+		return rank;
+	}
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+	public Card(Suit suit, Rank rank, int value) {
+		this.suit = suit;
+		this.rank = rank;
+		this.value = value;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(rank);
+		builder.append(" of ");
+		builder.append(suit);
+		return builder.toString();
+	}
+	public Card(Suit s, Rank r) {
+		super();
+		this.suit = s;
+		this.rank = r;
+		this.value = rank.getValue();
+	}
+	
 }
 
