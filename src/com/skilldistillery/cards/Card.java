@@ -35,7 +35,7 @@ public class Card {
 		builder.append(suit);
 		return builder.toString();
 	}
-	public Card(Suit s, Rank r) {
+	public Card(Rank r, Suit s) {
 		super();
 		this.suit = s;
 		this.rank = r;

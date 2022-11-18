@@ -5,49 +5,47 @@ import java.util.List;
 
 import com.skilldistillery.cards.Card;
 
-public class Hand {
-	private List<Card> hand = new ArrayList<Card>(0);
+public abstract class Hand {
+	 protected List<Card> cards;
 
-	public void addCard(Card card) {
-		getHand().add(card);
+	
+	public Hand() {
+	
+		cards = new ArrayList<Card>();
+
+
 	}
 
-	public int getCardsInHand() {
-		int tVal = 0;
-		for (Card card : getHand()) {
-			System.out.println(card);
-			tVal = card.getValue() + tVal;
-
-		}
-		return tVal;
+	
+	public Card addCard(Card card) {
 		
-	}
-
-	public void getValueOfHand() {
-		int tVal = 0;
-		for (Card card : getHand()) {
-			tVal = card.getValue() + tVal;
-		}
-		
+		cards.add(card);
+		return card;
 
 	}
+	
+	public void clear() {
 
-	public int cardsInHand() {
-		int size = getHand().size();
-		return size;
+		cards.clear();
 	}
-
+	
 	public int getHandValue() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	int totalValue = 0;
+
+	return totalValue;
 	}
 
-	public List<Card> getHand() {
-		return hand;
+
+	public List<Card> getCards() {
+		return cards;
 	}
 
-	public void setHand(List<Card> hand) {
-		this.hand = hand;
+
+	@Override
+	public String toString() {
+		return "Hand [cards=" + cards + "]";
 	}
 
+	
 }

@@ -1,40 +1,33 @@
 package com.skilldistillery.players;
 
 import com.skilldistillery.cardgame.Hand;
-import com.skilldistillery.cards.Deck;
+import com.skilldistillery.cards.Card;
 
 public class Player {
-	private String name;
-	private Hand hand;
-
-	public Player(String name, Hand hand) {
-		super();
-		this.name = name;
-		this.setHand(hand);
-		
-	}
-
+	
+	protected Hand hand;
+	
 	public Player() {
+		super();
 		
 	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void getHand() {
-		
-	}
-	public void setHand(Hand hand) {
+	public Player(Hand hand) {
+		super();
 		this.hand = hand;
 	}
 
+		public void printHandAndValue() {
+			int value = 0;
+			for(Card card : this.hand.getCards()) {
+				System.out.println(card);
+				value += card.getValue();
+			}
+			System.out.println("Total value: " + value);
+		}
 
+		public Hand getHand() {
+			return hand;
+		}
 
-	public void hitOrStay(Deck deck, Hand hd, int s) {
-		
-		
-	}
 }

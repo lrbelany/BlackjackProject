@@ -4,45 +4,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
-
-
 public class Deck {
-	private List<Card> deck = new ArrayList<>();
-
-
-	public Card dealCard() { 
-		Card c = deck.remove(0);
-		
-		
-		return c;
+	private List<Card> cards;
+	
+	public Deck() {
+		cards = createDeck();
 	}
 	
-
-	        
-	
-	public void emptyDeck() {
-		deck.clear();
-	}
-	public void generateDeck() {
-		for (Suit s : Suit.values()) {
-			for (Rank r : Rank.values()) {
-				deck.add(new Card(s, r));
+	private List<Card> createDeck() {
+		List<Card> deck = new ArrayList<Card>(52);
+		for(Suit s : Suit.values()) {
+			for(Rank r : Rank.values()) {
+				deck.add(new Card(r, s));
 			}
 		}
-		shuffleDeck(deck);	
-//        for (Card card : deck) {
-//            System.out.println(card);
-//        }
-
-	}
-
-	private void shuffleDeck(List<Card> deck) {
-		Collections.shuffle(deck);
-	}
-
-	public int cardsLeft() {
-		return deck.size();
+		return deck;
 	}
 	
+	public int checkDeckSize() {
+		return cards.size();
+		
+	}
+	
+	public Card dealCard() {
+		return cards.remove(0);
+	}
+	
+	public void shuffle() {
+		Collections.shuffle(cards);
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
 }
